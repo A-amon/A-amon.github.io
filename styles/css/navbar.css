@@ -1,0 +1,23 @@
+.d-flex, nav, .navbar__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav {
+  font-family: 'Overpass', sans-serif;
+  background-color: black;
+}
+
+.navbar__brand {
+  display: block;
+}
+
+.navbar__link {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+/*# sourceMappingURL=navbar.css.map */

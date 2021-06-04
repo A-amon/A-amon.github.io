@@ -1,0 +1,52 @@
+footer{
+    color:$light-gray;
+    font-family: 'Overpass', sans-serif;
+
+    background-color: $very-dark-black-blue;
+    min-height:300px;
+    @include d-flex;
+    border-top-right-radius: 100px;
+
+    @include mobile-query{
+        padding:50px 0;
+    }
+
+    .footer__inner{
+        @include d-flex{
+            align-items: flex-start;
+            flex-wrap: wrap;
+        };
+        margin:0 100px;
+        width: 100%;
+
+        @include mobile-query{
+            margin:0 25px;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .footer__column{
+        margin:0 80px;
+        
+        @include mobile-query{
+            margin:initial;
+            text-align: center;
+        }
+        h3, a{
+            @include small-fontsize;
+        }
+
+        h3{
+            color:white;
+        }
+
+        li{
+            margin:0.5rem 0;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+}

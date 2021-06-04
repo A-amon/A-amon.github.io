@@ -1,0 +1,24 @@
+@mixin d-flex{
+    display: flex;
+    align-items: center;
+    @content;
+}
+
+@mixin button{
+    font-family: 'Overpass', sans-serif;
+    font-weight: 600;
+    padding:0.8rem;
+    border-radius:50px;
+    text-align: center;
+    @content;
+}
+
+@import './breakpoints.scss';
+@import './color.scss';
+@import './typography.scss';
+
+@import './reset.scss';
+
+@import './navbar.scss';
+@import './footer.scss';
+
