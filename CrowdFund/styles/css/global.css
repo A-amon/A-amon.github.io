@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+h1, h2 {
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  background: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar {
+  font-family: "Commissioner", sans-serif;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.navbar__inner {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 25px 0;
+  max-width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__inner {
+    max-width: 90%;
+  }
+}
+
+.navbar__btn {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__btn {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+.navbar__btn[data-open="true"] img[alt="Close menu"] {
+  display: block;
+}
+
+.navbar__btn[data-open="true"] img[alt="Open menu"] {
+  display: none;
+}
+
+.navbar__btn[data-open="false"] img[alt="Close menu"] {
+  display: none;
+}
+
+.navbar__btn[data-open="false"] img[alt="Open menu"] {
+  display: block;
+}
+
+.navbar__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__links {
+    display: none;
+    width: 90%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: white;
+    color: black;
+    border-radius: 10px;
+  }
+  .navbar__links.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.navbar__link {
+  margin: 0 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__link {
+    margin: 0;
+    padding: 1.5rem;
+    font-weight: bold;
+  }
+  .navbar__link:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+/*# sourceMappingURL=global.css.map */

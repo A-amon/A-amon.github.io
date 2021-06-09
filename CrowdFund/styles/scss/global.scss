@@ -1,0 +1,17 @@
+@import './color.scss';
+@import './breakpoints.scss';
+@import './reset.scss';
+@import './typography.scss';
+
+@import './navbar.scss';
+
+@mixin pill-button {
+    border-radius:50px;
+    color:white;
+    background-color: $moderate-cyan;
+    padding:1rem 2rem;
+    font-weight:bold;
+    &:hover{
+        background-color:$dark-cyan;
+    }
+}
