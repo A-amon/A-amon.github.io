@@ -265,7 +265,7 @@ function addToRewardsModal(reward) {
     rewardCard.setAttribute("data-amount", reward.amount)
 
     rewardCard.innerHTML = `<div class="card__header">
-                                <input type="radio" class="reward__radio" name="reward__radio">
+                                <input type="radio" class="reward__radio" aria-label="Select reward">
                                 <h3>${reward.name}</h3>
                                 <span>Pledge $${reward.min} or more</span>
                                 <span class="amount__left">
@@ -284,7 +284,7 @@ function addToRewardsModal(reward) {
                             </div>
                             <div class="pledge">
                                 <div class="pledge__wrapper">
-                                    <input class="pledge__amount" type="number" placeholder="Enter your pledge" name="pledge__amount">
+                                    <input class="pledge__amount" type="number" placeholder="Enter your pledge" aria-label="Enter pledge amount">
                                     <span class="pledge__error"></span>
                                 </div>
                                 <span class="pledge__min">${reward.min}</span>
