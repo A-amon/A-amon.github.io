@@ -461,6 +461,11 @@ section {
   overflow: hidden;
 }
 
+.creations__card:hover span {
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
 .creations__card img {
   -o-object-fit: cover;
      object-fit: cover;
