@@ -1,0 +1,163 @@
+@import 'global.scss';
+
+$hero-desktop: 650px;
+
+section{
+    padding:$padding-desktop;
+    @include tablet-query{
+        padding:$padding-tablet;
+    }
+
+    @include mobile-query{
+        padding:$padding-mobile;
+    }
+}
+
+.hero{
+    background: url('../../assets/images/desktop/image-hero.jpg');
+    height:$hero-desktop;
+    color:$white;
+    display: flex;
+    align-items: center;
+    padding:0 $padding-desktop;
+    
+    @include tablet-query{
+        padding:0 $padding-tablet;
+    }
+    
+    @include mobile-query{
+        padding:0 $padding-mobile;
+    }
+    
+    h1{
+        border:1px solid $white;
+        width: fit-content;
+        padding:2rem 3rem 2rem 1rem;
+
+        @include tablet-query{
+            padding:2rem;
+        }
+
+        @include mobile-query{
+            padding:1rem;
+        }
+    }
+}
+
+.about{
+    @include tablet-query{
+        padding:$padding-tablet;
+    }
+
+    @include mobile-query{
+        padding:$padding-mobile;
+    }
+    
+    img{
+        @include tablet-query{
+            width: 100%;
+        }
+    }
+
+    &__wrapper{
+        position: relative;
+    }
+   
+    &__desc{
+        background: $white;  
+        position:absolute;
+        width: 40%;
+        bottom:0;  
+        right:0;    
+        display: flex;
+        flex-direction: column;
+        padding:$padding-desktop;
+        padding-right: 0;
+        padding-bottom: 0;
+
+        h2{
+            margin-bottom:1rem;
+        }
+
+        @include tablet-query{
+            text-align: center;
+            position: relative;
+            width: 100%;
+            padding:$padding-tablet 0;
+        }
+    }
+}
+
+$min-col-width:200px;
+$card-fontsize:$h2-size - 1.5rem;
+
+.creations{
+    .btn{
+        padding:0.5rem 1.5rem;
+        border:1px solid $black;
+        margin-left: auto;
+        &:hover{
+            background:black;
+            color:$white;
+        }
+    }
+
+    &__header{
+        display: flex;
+        align-items: center;
+
+        @include tablet-query{
+            justify-content: center;
+            .btn{
+                display: none;
+            }
+        }
+    }
+
+    &__footer .btn{
+        display: none;
+        @include tablet-query{
+            display: block;
+            margin:auto;
+            max-width: fit-content;
+        }
+    }
+
+    &__wrapper{
+        padding:$padding-desktop/2 0;
+        display: grid;
+        grid-gap: 25px;
+        grid-template-columns: repeat(auto-fill, minmax($min-col-width,1fr));
+        
+        // @include tablet-query{
+        //     grid-template-columns: repeat(auto-fill, minmax(100%,1fr));
+        // }
+    }
+
+    &__card{
+        position: relative;
+        max-width: fit-content;
+        overflow: hidden;
+
+        img{
+            object-fit: cover;
+            width: 100%;
+        }
+
+        span{
+            display: flex;
+            align-items: flex-end;
+            position:absolute;
+            bottom:0;
+            left:0;
+            color: $white;
+            height: 100%;
+            width: 100%;
+            font-family: $font-josefin;
+            text-transform: uppercase;
+            font-size:$card-fontsize;
+            padding:1rem;
+            background: linear-gradient(to bottom, transparent, $black);
+        }
+    }
+}

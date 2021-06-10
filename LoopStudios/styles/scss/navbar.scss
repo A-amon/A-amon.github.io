@@ -1,0 +1,123 @@
+.d-flex{
+    display: flex;
+    align-items: center;
+}
+
+@mixin nav-link-animation{
+    position: relative;
+
+    &::after{
+        content:'';
+        display: block;
+        width: 0%;
+        position:absolute;
+        left:0;
+        right:0;
+        border-bottom: 2px solid $white;
+        transition:width 0.5s;
+        margin:auto;
+    }
+
+    &:hover::after{
+        width: 100%;
+    }
+}
+
+.navbar{
+    color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index:1;
+
+    &.filled{
+        background-color: $black;
+    }
+
+    &__brand img{
+        width: 150px;
+    }
+
+    &__inner{
+        padding:25px $padding-desktop;
+        @extend .d-flex;
+
+        @include tablet-query{
+            padding:25px $padding-tablet;
+        }
+
+        @include mobile-query{
+            padding:25px $padding-mobile;
+        }
+    }
+
+    &__menu, &__links{
+        margin-left:auto;
+    }
+
+    &__menu{
+        display: none;
+
+        @include tablet-query{
+            display: block;
+        }
+    }
+
+    &__menu img[data-label="close"]{
+        display: none;
+    }
+
+    &__menu.show{
+        img[data-label="hamburger"]{
+            display: none;
+        }
+        img[data-label="close"]{
+            display: block;
+        }
+    }
+
+    &__menu.show + &__links{
+        display: flex;
+    }
+
+    &__links{
+        @extend .d-flex;
+
+        @include tablet-query{
+            display: none;
+            position:fixed;
+            height:100%;
+            width: 100%;
+            top:0;
+            left:0;
+            flex-direction:column;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: black;
+            z-index:-1;
+        }
+    }
+
+    &__link{
+        margin:0 1rem;
+        a{
+            @include nav-link-animation;
+        }
+
+        @include tablet-query{
+            margin:1rem $padding-tablet;
+            font-family: $font-josefin;
+
+            a{
+                font-size:2rem;
+                font-weight:300;
+                text-transform: uppercase;
+            }
+        }
+
+        @include mobile-query{
+            margin:1rem $padding-mobile;
+        }
+    }
+}
