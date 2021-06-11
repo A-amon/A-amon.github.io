@@ -302,7 +302,8 @@ section {
 }
 
 .hero {
-  background: url("../../assets/images/desktop/image-hero.jpg");
+  background-image: url("../../assets/images/desktop/image-hero.jpg");
+  background-size: cover;
   height: 650px;
   color: white;
   display: -webkit-box;
@@ -323,6 +324,7 @@ section {
 @media screen and (max-width: 425px) {
   .hero {
     padding: 0 25px;
+    background-image: url("../../assets/images/mobile/image-hero.jpg");
   }
 }
 

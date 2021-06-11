@@ -14,7 +14,8 @@ section{
 }
 
 .hero{
-    background: url('../../assets/images/desktop/image-hero.jpg');
+    background-image: url('../../assets/images/desktop/image-hero.jpg');
+    background-size: cover;
     height:$hero-desktop;
     color:$white;
     display: flex;
@@ -27,6 +28,7 @@ section{
     
     @include mobile-query{
         padding:0 $padding-mobile;
+        background-image: url('../../assets/images/mobile/image-hero.jpg');
     }
     
     h1{
