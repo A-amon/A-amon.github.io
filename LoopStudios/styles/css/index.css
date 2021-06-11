@@ -449,15 +449,13 @@ section {
   display: -ms-grid;
   display: grid;
   grid-gap: 25px;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-items: stretch;
 }
 
 .creations__card {
   position: relative;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
   overflow: hidden;
 }
 

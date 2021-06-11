@@ -88,7 +88,7 @@ section{
     }
 }
 
-$min-col-width:200px;
+$min-col-width:250px;
 $card-fontsize:$h2-size - 1.5rem;
 
 .creations{
@@ -128,15 +128,11 @@ $card-fontsize:$h2-size - 1.5rem;
         display: grid;
         grid-gap: 25px;
         grid-template-columns: repeat(auto-fill, minmax($min-col-width,1fr));
-        
-        // @include tablet-query{
-        //     grid-template-columns: repeat(auto-fill, minmax(100%,1fr));
-        // }
+        justify-items: stretch;
     }
 
     &__card{
         position: relative;
-        max-width: fit-content;
         overflow: hidden;
 
         &:hover span{
