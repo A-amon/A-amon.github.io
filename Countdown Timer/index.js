@@ -71,22 +71,22 @@ function setCardContent(ind, newValue, type) {
     let timerCard = document.getElementsByClassName("timer__card")[ind]
 
     let timerValues = timerCard.querySelectorAll(".timer__value")
-    let currentValue = timerCard.getAttribute("aria-value")
+    let currentValue = timerCard.textContent
 
-    if (parseInt(currentValue) !== parseInt(newValue)) {
+    let timePassed = Math.abs(parseInt(newValue) - parseInt(currentValue))
+
+    if (timePassed > 0) {
         let animatedFlip = createAnimatedFlip(timerCard.children[0])
         animatedFlip.addEventListener("animationend", () => {
             timerValues[1].textContent = newValue
             timerCard.removeChild(animatedFlip)
 
             if (type !== "second")
-                setTimerAlert(`${appendSToEnd(newValue, type)} has passed!`)
+                setTimerAlert(`${appendSToEnd(timePassed, type)} has passed!`)
         })
 
         timerCard.appendChild(animatedFlip)
         timerValues[0].textContent = newValue
-
-        timerCard.setAttribute("aria-value", parseInt(newValue))
     }
 }
 
