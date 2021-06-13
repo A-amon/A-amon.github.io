@@ -1,14 +1,20 @@
-const LAUNCH_DATETIME = "2021/06/13 15:10:30"
+// const LAUNCH_DATETIME = "2021/06/13 15:10:30"
+var launchDatetime
 var interval
 
 window.onload = function () {
-    updateTime(true)
+    setLaunchTime()
     interval = setInterval(() => { updateTime() }, 1000)
+}
+
+function setLaunchTime() {
+    launchDatetime = new Date()
+    launchDatetime.setTime(launchDatetime.getTime() + (1 * 60 * 60 * 1000))
 }
 
 function updateTime(isInit = false) {
     let doClear = false
-    let launch = new Date(LAUNCH_DATETIME)
+    let launch = new Date(launchDatetime)
     let now = new Date()
 
     if (launch > now) {
