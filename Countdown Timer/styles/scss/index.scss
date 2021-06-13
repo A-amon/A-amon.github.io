@@ -1,0 +1,217 @@
+@import 'color.scss';
+@import 'typography.scss';
+@import 'breakpoints.scss';
+@import 'reset.scss';
+
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color:$very-dark-blue;
+    background-image: url('../../assets/images/pattern-hills.svg'), url('../../assets/images/bg-stars.svg');
+    background-repeat: no-repeat;
+    background-position: bottom, top;
+    font-family: $font-redhattext;
+}
+
+main{
+    flex:1;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.title{
+    color:$white;
+    text-transform: uppercase;
+    font-size:1.5rem;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$card-fontsize:4rem;
+$card-fontsize-tablet:3rem;
+$card-fontsize-mobile:2.5rem;
+$card-size: 150px;
+$card-size-tablet: 100px;
+$card-size-mobile:80px;
+
+.timer{
+    @keyframes expand{
+        0%{
+            transform:scale(1);
+        }
+        50%{
+            transform:scale(1.1);
+        }
+        100%{
+            transform:scale(1);
+        }
+    }
+
+    &__cards.launched{
+        animation:expand 1s 0.5s forwards;
+    }
+
+    &__cards, &__card{
+        @extend .d-flex;
+    }
+
+    &__card{
+        position: relative;
+        height:$card-size;
+        width: $card-size;
+        font-size: $card-fontsize;
+        color:$soft-red;
+        perspective: 500px;
+        &:not(:last-child){
+            margin:0 1rem 0 0;
+        }
+
+        @include tablet-query{
+            height:$card-size-tablet;
+            width: $card-size-tablet;
+            font-size: $card-fontsize-tablet;
+        }
+        @include mobile-query{
+            &:not(:last-child){
+                margin:0 0.5rem 0 0;
+            }
+            height:$card-size-mobile;
+            width: $card-size-mobile;
+            font-size: $card-fontsize-mobile;
+        }
+    }
+
+    &__alert{
+        height:0%;
+        overflow: hidden;
+        display: block;
+    }
+}
+
+.card__label{
+    position: absolute;
+    top:calc(100% + 1rem);
+    font-size:1rem;
+    text-transform: uppercase;
+}
+
+@mixin circles($from){
+    &::before, &::after{
+        content:'';
+        height:1rem;
+        width: 1rem;
+        background-color: $very-dark-black-blue;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    &::before{
+        left:-0.5rem;
+        #{$from}: calc(100% - 0.5rem);
+    }
+
+    &::after{
+        right:-0.5rem;
+        #{$from}: calc(100% - 0.5rem);
+    }
+}
+
+
+.timer__flip{
+    transform-origin: bottom;
+    @extend .d-flex;
+    height: 50%;
+    width: 100%;
+    background-color: $dark-desaturated-blue;
+    position:absolute;
+    overflow: hidden;
+
+    .timer__value{
+        display: block;
+        position:relative;
+    }
+
+    &.flip--top{
+        border-top-left-radius:5px;
+        border-top-right-radius:5px;
+        top:0;
+        z-index:1;
+        background-image:linear-gradient(to top, rgba($very-dark-blue, 0.3), transparent 50%);
+        // transition:transform 3s, background-image 3s;
+
+        &.flip{
+            animation:flipAnimation 0.5s 1 forwards;
+        }
+
+        @keyframes flipAnimation{
+            0%{
+                background-image:linear-gradient(to top, rgba($very-dark-blue, 0.3), transparent 50%);
+                transform:rotateX(0deg);
+                opacity:1;
+            }
+            50%{
+                transform:rotateX(-90deg);
+                background-image:linear-gradient(to top, $very-dark-blue, transparent 100%);
+                opacity:1;
+            }
+            100%{
+                transform:rotateX(-180deg);
+                background-image:linear-gradient(to top, rgba($very-dark-blue, 0.3), transparent 50%);
+                opacity: 0;
+            }
+        }
+
+        .timer__value{
+            top:50%;
+            opacity: 0.8;
+        }
+
+        @include circles(top);
+    }
+
+    &.flip--bottom{
+        border-bottom-left-radius:5px;
+        border-bottom-right-radius:5px;
+        bottom:0;
+        filter:drop-shadow(0 10px 0 $very-dark-black-blue);
+
+        .timer__value{
+            bottom:50%;
+        }
+        @include circles(bottom);
+    }
+
+   
+
+}
+
+footer{
+    margin-top:auto;
+    // padding:50px;
+    height:125px;
+}
+
+.social{
+    &__links{
+        display: flex;
+    }
+
+    &__link{
+        margin:0 1rem;
+    }
+}
+
+a:hover img{
+    filter:grayscale(100%);
+}
