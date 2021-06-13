@@ -8,8 +8,8 @@ window.onload = function () {
 }
 
 function setLaunchTime() {
-    launchDatetime = new Date()
-    launchDatetime.setTime(launchDatetime.getTime() + (1 * 60 * 60 * 1000))
+    launchDatetime = "2021/06/13 15:27:00"
+    // launchDatetime.setTime(launchDatetime.getTime() + (1 * 60 * 60 * 1000))
 }
 
 function updateTime(isInit = false) {
@@ -41,9 +41,6 @@ function updateTime(isInit = false) {
 
         if (isInit)
             setTimerAlert(`${appendSToEnd(days, "day")} ${appendSToEnd(hours, "hour")} ${appendSToEnd(minutes, "minute")} ${appendSToEnd(seconds, "second")}`)
-
-        if (diffInSeconds === 0)
-            doClear = true
     }
     else
         doClear = true
@@ -76,7 +73,7 @@ function setCardContent(ind, newValue, type) {
     let timerValues = timerCard.querySelectorAll(".timer__value")
     let currentValue = timerCard.getAttribute("aria-value")
 
-    if (currentValue !== newValue) {
+    if (parseInt(currentValue) !== parseInt(newValue)) {
         let animatedFlip = createAnimatedFlip(timerCard.children[0])
         animatedFlip.addEventListener("animationend", () => {
             timerValues[1].textContent = newValue
