@@ -8,8 +8,8 @@ window.onload = function () {
 }
 
 function setLaunchTime() {
-    launchDatetime = "2021/06/13 15:27:00"
-    // launchDatetime.setTime(launchDatetime.getTime() + (1 * 60 * 60 * 1000))
+    launchDatetime = new Date()
+    launchDatetime.setTime(launchDatetime.getTime() + (1 * 60 * 60 * 1000))
 }
 
 function updateTime(isInit = false) {
