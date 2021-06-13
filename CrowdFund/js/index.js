@@ -40,7 +40,6 @@ window.onload = function () {
     document.addEventListener('scroll', handleScroll);
 
     const backButton = document.getElementsByClassName("back__btn")[0]  // back project button
-
     backButton.addEventListener("click", () => { showRewardsModal() })
 
     const bookmarkButton = document.getElementsByClassName("bookmark__btn")[0]  // bookmark switch
@@ -49,7 +48,7 @@ window.onload = function () {
     const navbarButton = document.getElementsByClassName("navbar__btn")[0]
     navbarButton.addEventListener("click", () => { handleMenu(navbarButton) })
 
-    const modalRewardCard = document.getElementsByClassName("rewards__modal")[0].children[0]
+    const modalRewardCard = document.getElementsByClassName("modal__stands")[0].children[0]
     addClickEventToCard(modalRewardCard)
 }
 
@@ -135,6 +134,7 @@ function selectReward(__selectedCard, isModal = true) {
     unselectPrevReward()
 
     const selectedId = parseInt(__selectedCard.getAttribute("data-id"))
+
     let selectedRadio
     if (isModal) {
         selectedRadio = __selectedCard.querySelector("[type='radio']")
@@ -166,13 +166,14 @@ function getRadioInModal(rewardCard) {
 }
 
 function pledge(reward) {
-    const pledgeAmount = parseInt(document.getElementsByClassName("pledge__amount")[0].value)
+    const pledgeAmount = parseInt(document.getElementsByClassName("pledge__amount")[reward.id === null ? 0 : reward.id].value)
     const pledgeErrorMessage = document.getElementsByClassName("pledge__error")[0]
 
     let errorMessage = null
 
+
     if (reward === null || pledgeAmount >= reward.min) {
-        if (reward != null) {
+        if (reward !== null) {
             const rewardInd = rewards.findIndex(__reward => __reward.id === reward.id)
             rewards[rewardInd].amount--
             updateAmountShown(reward.amount)
@@ -284,7 +285,7 @@ function addToRewardsModal(reward) {
                             </div>
                             <div class="pledge">
                                 <div class="pledge__wrapper">
-                                    <input class="pledge__amount" type="number" placeholder="Enter your pledge" aria-label="Enter pledge amount">
+                                    <input class="pledge__amount" type="number" placeholder="Enter your pledge" aria-label="Enter pledge amount'>
                                     <span class="pledge__error"></span>
                                 </div>
                                 <span class="pledge__min">${reward.min}</span>
