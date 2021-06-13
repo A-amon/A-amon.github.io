@@ -11,6 +11,7 @@ body{
     height: 100vh;
     background-color:$very-dark-blue;
     background-image: url('../../assets/images/pattern-hills.svg'), url('../../assets/images/bg-stars.svg');
+    background-size:100%;
     background-repeat: no-repeat;
     background-position: bottom, top;
     font-family: $font-redhattext;
