@@ -20,7 +20,7 @@ startMatch = () => {
     setTimeout(() => {
         computerMove()
         displayWinner()
-    }, 3000)
+    }, 1500)
 }
 
 //display result 
