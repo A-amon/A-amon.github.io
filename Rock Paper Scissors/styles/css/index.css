@@ -24,6 +24,10 @@ button {
   border: none;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
   min-height: 100vh;
@@ -42,6 +46,7 @@ body {
           align-items: center;
   color: white;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
 header, main {
@@ -56,6 +61,8 @@ header, main {
 }
 
 header {
+  position: relative;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,6 +298,28 @@ section.hide {
   position: relative;
 }
 
+.result .result__player.winner::after, .result .result__computer.winner::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: repeating-radial-gradient(circle, rgba(255, 255, 255, 0.5) 30%, rgba(0, 0, 0, 0.05) 10%, white 40%, white 30%, rgba(0, 0, 0, 0.05) 30%, white 60%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+@media screen and (max-width: 768px) {
+  .result .result__player.winner::after, .result .result__computer.winner::after {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+
 .result .result__player {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -491,6 +520,7 @@ footer .rules__button {
   position: fixed;
   top: 0;
   bottom: 0;
+  z-index: 1;
   margin: auto;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -517,6 +547,10 @@ footer .rules__button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.rules__modal.show + header {
+  z-index: -1;
 }
 
 .rules__modal .rules__header {
