@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/css/index.min.css">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Rock<br>
+            Paper<br>
+            Scissors
+        </h1>
+        <div class="score" aria-live="polite" aria-atomic="true">
+            <h2>Score</h2>
+            <span class="score__value">12</span>
+        </div>
+    </header>
+    <main>
+        <section class="select">
+            <button data-value="paper" class="select__button">
+                <img src="assets/icons/icon-paper.svg" alt="Select paper">
+            </button>
+            <button data-value="scissors" class="select__button">
+                <img src="assets/icons/icon-scissors.svg" alt="Select scissors">
+            </button>
+            <button data-value="rock" class="select__button">
+                <img src="assets/icons/icon-rock.svg" alt="Select rock">
+            </button>
+        </section>
+        <section class="result hide" aria-live="assertive">
+            <div class="result__player">
+                <span class="select__text">You picked</span>
+                <button data-value="none" class="select__button">
+                </button>
+            </div>
+            <div class="result__computer">
+                <span class="select__text">The house picked</span>
+                <button data-value="none" class="select__button">
+                </button>
+            </div>
+            <div class="result__final" aria-live="assertive">
+                <span class="result__text"></span>
+                <button class="again__button">
+                    Play again
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <button class="rules__button">
+            Rules
+        </button>
+    </footer>
+    <div class="rules__modal">
+        <div class="rules__header">
+            <h3>Rules</h3>
+            <input class="close__button" type="image" src="assets/icons/icon-close.svg" alt="Close modal">
+        </div>
+        <img src="assets/images/image-rules.svg" alt="Paper beats rock, rock beats scissors, scissors beats paper">
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
