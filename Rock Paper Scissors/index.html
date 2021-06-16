@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <div class="rules__modal">
+        <div class="rules__header">
+            <h3>Rules</h3>
+            <input class="close__button" type="image" src="assets/icons/icon-close.svg" alt="Close modal">
+        </div>
+        <img src="assets/images/image-rules.svg" alt="Paper beats rock, rock beats scissors, scissors beats paper">
+    </div>
     <header>
         <h1>
             Rock<br>
@@ -22,7 +29,7 @@
         </div>
     </header>
     <main>
-        <section class="select">
+        <div class="screen select">
             <button data-value="paper" class="select__button">
                 <img src="assets/icons/icon-paper.svg" alt="Select paper">
             </button>
@@ -32,8 +39,8 @@
             <button data-value="rock" class="select__button">
                 <img src="assets/icons/icon-rock.svg" alt="Select rock">
             </button>
-        </section>
-        <section class="result hide" aria-live="assertive">
+        </div>
+        <div class="screen result hide" aria-live="assertive">
             <div class="result__player">
                 <span class="select__text">You picked</span>
                 <button data-value="none" class="select__button">
@@ -50,21 +57,13 @@
                     Play again
                 </button>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         <button class="rules__button">
             Rules
         </button>
     </footer>
-    <div class="rules__modal">
-        <div class="rules__header">
-            <h3>Rules</h3>
-            <input class="close__button" type="image" src="assets/icons/icon-close.svg" alt="Close modal">
-        </div>
-        <img src="assets/images/image-rules.svg" alt="Paper beats rock, rock beats scissors, scissors beats paper">
-    </div>
-
     <script src="index.js"></script>
 </body>
 

@@ -5,7 +5,7 @@ var score = 0
 //read score from localstorage
 getScore = () => {
     savedScore = window.localStorage.getItem("score")
-    if (savedScore !== "undefined")
+    if (savedScore !== "undefined" && savedScore !== "null")
         score = savedScore
 }
 
@@ -20,7 +20,7 @@ startMatch = () => {
     setTimeout(() => {
         computerMove()
         displayWinner()
-    }, 1500)
+    }, 3000)
 }
 
 //display result 
@@ -29,10 +29,16 @@ displayWinner = () => {
     let resultFinal = document.getElementsByClassName("result__final")[0]
     let resultText = resultFinal.children[0]
 
-    if (winner === "player")
+    if (winner === "player") {
         resultText.textContent = "You win"
-    else if (winner === "computer")
+        let playerResult = document.getElementsByClassName("result__player")[0]
+        playerResult.classList.add("winner")
+    }
+    else if (winner === "computer") {
         resultText.textContent = "You lose"
+        let compResult = document.getElementsByClassName("result__computer")[0]
+        compResult.classList.add("winner")
+    }
     else
         resultText.textContent = "It's a draw"
 
