@@ -66,6 +66,7 @@ h1 {
   position: relative;
   height: 0;
   width: 0;
+  opacity: 0;
 }
 
 .toggle__label {
@@ -188,7 +189,7 @@ h1 {
   z-index: 1;
 }
 
-.plan:nth-child(2) h2,
+.plan:nth-child(2) .plan__title,
 .plan:nth-child(2) .plan__price,
 .plan:nth-child(2) .plan__item {
   color: white;
@@ -199,7 +200,7 @@ h1 {
   background: white;
 }
 
-.plan h2 {
+.plan__title {
   font-size: 0.9rem;
 }
 
