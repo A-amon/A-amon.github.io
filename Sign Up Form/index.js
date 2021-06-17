@@ -34,6 +34,7 @@ capitalizeFirstLetter = (word) => {
 resetErrorMessage = (id) => {
     let inputEl = document.getElementById(id)
     let formGroup = inputEl.parentElement
+    inputEl.setAttribute("aria-invalid", false)
     formGroup.classList.remove("error")
 }
 
@@ -42,6 +43,7 @@ displayErrorMessage = (id, message) => {
     let inputEl = document.getElementById(id)
     let formGroup = inputEl.parentElement
     let errorEl = inputEl.nextElementSibling
+    inputEl.setAttribute("aria-invalid", true)
     errorEl.textContent = message
     formGroup.classList.add("error")
 }
