@@ -212,6 +212,20 @@ h1 {
 .plan__price {
   font-size: 3rem;
   color: #494c5f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.plan__price__symbol {
+  font-size: 2rem;
+  margin-right: 0.5rem;
 }
 
 .plan__item {

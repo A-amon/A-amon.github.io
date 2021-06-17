@@ -167,6 +167,14 @@ $toggle-button-size:35px;
     &__price{
         font-size:$fontsize-very-large;
         color:$dark-grayish-blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__price__symbol{
+        font-size:$fontsize-very-large - 1rem;
+        margin-right:0.5rem;
     }
 
     &__item{
