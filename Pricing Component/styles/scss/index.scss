@@ -1,0 +1,189 @@
+@import 'typography.scss';
+@import 'color.scss';
+@import 'reset.scss';
+@import 'breakpoints.scss';
+
+body{
+    font-family: $font-montserrat;
+    min-height: 100vh;
+    background: url("../../assets/images/bg-bottom.svg"), url("../../assets/images/bg-top.svg"), $very-light-grayish-blue;
+    background-repeat: no-repeat;
+    background-position: bottom left, top right;
+    text-align: center;
+
+    @include mobile-query{
+        background: url("../../assets/images/bg-top.svg"), $very-light-grayish-blue;
+        background-position:150px 0;
+        background-repeat: no-repeat;
+    }
+}
+
+body, main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    @include tablet-query{
+        padding:3rem 0;
+    }
+}
+
+h1{
+    color:$grayish-blue;
+}
+
+$toggle-button-size:35px;
+
+.toggle{
+    &__checkbox{
+        position: relative;
+        height:0;
+        width: 0;
+    }
+
+    &__label{
+        content:'';
+        color:transparent;
+        background:$blue-gradient;
+        width: 80px;
+        height: $toggle-button-size + 5;
+        display: block;
+        position: relative;
+        border-radius: 50px;
+        cursor: pointer;
+        margin:2rem 0 2.5rem 0;
+        user-select: none;
+
+        &--annually, &--monthly{
+            position: absolute;
+            top:50%;
+            transform:translateY(-50%);
+            color: $light-grayish-blue;
+            z-index: 1;
+            text-indent: initial;
+            text-transform: capitalize;
+            font-size: $fontsize-regular;
+        }
+
+        &--annually{
+            right:calc(100% + 1rem);
+        }
+
+        &--monthly{
+            left:calc(100% + 1rem);
+        }
+    }
+
+    &__label::after{
+        content:'';
+        height:$toggle-button-size;
+        width: $toggle-button-size;
+        background-color: $white;
+        position:absolute;
+        top:0;
+        left:2.5px;
+        bottom:0;
+        margin:auto;
+        border-radius: 50%;
+        transition: transform 0.5s;
+    }
+
+    &__checkbox:not(:checked) ~ .plans--annual{
+        display: flex;
+    }
+
+    &__checkbox:checked {
+        & ~ label{
+            background:$light-blue-gradient;
+        }
+
+        & ~ label::after{
+            transform: translateX(calc(100% + 5px));
+        }
+
+        & ~ .plans--month{
+            display: flex;
+        }
+
+        & ~ .plans--annual{
+            display: none;
+        }
+    }
+}
+
+.plans--month{
+    display: none;
+}
+
+.plans{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.plan{
+    min-width: 250px;
+    padding:1.5rem;
+    border-radius: 10px;
+    background-color: $white;
+    font-size:$fontsize-regular;
+    box-shadow: 0 0 15px $light-gray;
+
+    @include tablet-query{
+        margin:1rem;
+    }
+
+    &:nth-child(2){
+        position: relative;
+        background:$blue-gradient;
+        padding:2.5rem 1.5rem;
+        z-index: 1;
+    }
+
+    &:nth-child(2) h2,
+    &:nth-child(2) &__price, 
+    &:nth-child(2) &__item{
+        color:$white;
+    }
+
+    &:nth-child(2) &__button{
+        color:$blue;
+        background: $white;
+    }
+
+    h2{
+        font-size:$fontsize-regular;
+    }
+
+    &__price, &__item{
+        display: block;
+        padding:1rem 0;
+    }
+
+    &__price{
+        font-size:$fontsize-very-large;
+        color:$dark-grayish-blue;
+    }
+
+    &__item{
+        border-top:1px solid $very-light-grayish-blue;
+        color:$grayish-blue;
+    }
+
+    &__item:last-child{
+        border-bottom:1px solid $very-light-grayish-blue;
+    }
+
+    &__button{
+        text-transform: uppercase;
+        display: block;
+        padding:0.5rem 0;
+        color:$white;
+        background: $blue-gradient;
+        border-radius: 5px;
+        margin-top:1rem;
+    }
+}
