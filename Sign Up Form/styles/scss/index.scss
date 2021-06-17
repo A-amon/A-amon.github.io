@@ -1,0 +1,179 @@
+@import 'breakpoints.scss';
+@import 'color.scss';
+@import 'typography.scss';
+@import 'reset.scss';
+
+body{
+    background: $red;
+    font-family: $font-poppins;
+}
+
+main{
+    background:url("../../assets/images/bg-intro-desktop.png");
+    background-size:cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap:wrap;
+    padding:0 150px;
+    @include tablet-query{
+        padding:0 100px;
+    }
+    @include mobile-query{
+        background:url("../../assets/images/bg-intro-mobile.png");
+    }
+
+    @include mobile-query{
+        padding:0 25px;
+    }
+}
+
+.col{
+    flex:1;
+
+    @include tablet-query{
+        flex:100%;
+    }
+    &--left{
+        color:$white;
+    }
+}
+
+.col--left{
+    margin-right:50px;
+
+    @include tablet-query{
+        text-align: center;
+        margin:0;
+        padding:100px 0 50px 0;
+    }
+    h1{
+        font-size: $font-large;
+        @include mobile-query{
+            font-size:$font-large-mobile;
+        }
+    }
+
+    p{
+        opacity:0.8;
+        font-size: $font-regular;
+    }
+}
+
+.col--right{
+    max-width: 550px;
+    .col{
+        &__header{
+            color:$white;
+            padding:1.5rem;
+            background-color: $blue;
+            display: block;
+            text-align: center;
+            border-radius:10px;
+            margin-bottom:2rem;
+            filter:drop-shadow(0 10px 0 $passthrough-black);
+        }
+
+        &__form{
+            background-color: $white;
+            padding:3rem;
+            border-radius:10px;
+            @include mobile-query{
+                padding:2rem;
+            }
+        }
+    }
+}
+
+form{
+    .form__group{
+        position: relative;
+
+        &::after{
+            content:'';
+            height:3rem;
+            width: 3rem;
+            background:url('../../assets/icons/icon-error.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            margin:auto;
+            display: none;
+        }
+    }
+
+    .form__group.error::after{
+        display: block;
+    }
+
+    .form__group.error input{
+        border:2px solid $red;
+    }
+
+    .form__group.error .form__error{
+        display: block;
+    }
+
+    .form__group, button{
+        margin-bottom:1.5rem;
+    }
+
+    input, button{
+        width: 100%;
+        font-size: $font-regular;
+        font-family: inherit;
+        font-weight: bold;
+        border-radius:5px;
+        padding:1rem 2rem;
+        @include mobile-query{
+            font-size:$font-regular-mobile;
+        }
+    }
+
+    input{
+        position: relative;
+        color:$dark-blue;
+        border:1px solid $light-gray;
+        box-sizing: border-box;
+
+        @include mobile-query{
+            padding:1rem;
+        }
+        &:focus{
+            outline: none;
+            border-color: $dark-blue;
+        }
+    }
+
+    .form__error{
+        display: none;
+        color:$red;
+        position: absolute;
+        top:100%;
+        right:0;
+        font-size: $font-small;
+    }
+
+    button{
+        background-color: $green;
+        color:$white;
+        box-shadow: 0 -5px 0px $passthrough-black inset;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+    }
+
+    .form__terms{
+        font-size:$font-small;
+        color:$grayish-blue;
+        display: block;
+        text-align: center;
+    }
+
+    .form__terms a{
+        color:$dark-blue;
+        font-weight: bold;
+    }
+}
