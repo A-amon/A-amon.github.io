@@ -15,6 +15,7 @@ main{
     display: flex;
     align-items: center;
     flex-wrap:wrap;
+    justify-content: center;
     padding:0 150px;
     @include tablet-query{
         padding:0 100px;
@@ -138,9 +139,11 @@ form{
         color:$dark-blue;
         border:1px solid $light-gray;
         box-sizing: border-box;
+        min-width:350px;
 
         @include mobile-query{
             padding:1rem;
+            min-width: 100%;
         }
         &:focus{
             outline: none;
