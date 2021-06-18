@@ -200,6 +200,15 @@ h1 {
   background: white;
 }
 
+.plan:nth-child(2) .plan__button:hover {
+  background: none;
+  color: white;
+}
+
+.plan:nth-child(2) .plan__button:hover::after {
+  border-color: white;
+}
+
 .plan__title {
   font-size: 0.9rem;
 }
@@ -238,13 +247,32 @@ h1 {
 }
 
 .plan__button {
+  position: relative;
   text-transform: uppercase;
   display: block;
   padding: 0.5rem 0;
   color: white;
   background: -webkit-gradient(linear, left top, right top, from(#a3a8f0), to(#696fdd));
   background: linear-gradient(to right, #a3a8f0, #696fdd);
-  border-radius: 5px;
   margin-top: 1rem;
+}
+
+.plan__button, .plan__button::after {
+  border-radius: 5px;
+}
+
+.plan__button:hover {
+  background: none;
+  color: #696fdd;
+}
+
+.plan__button:hover::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #696fdd;
 }
 /*# sourceMappingURL=index.css.map */

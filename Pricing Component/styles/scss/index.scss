@@ -153,6 +153,14 @@ $toggle-button-size:35px;
     &:nth-child(2) &__button{
         color:$blue;
         background: $white;
+        &:hover{
+            background:none;
+            color:$white;
+        }
+
+        &:hover::after{
+            border-color:$white;
+        }
     }
 
     &__title{
@@ -187,12 +195,31 @@ $toggle-button-size:35px;
     }
 
     &__button{
+        position: relative;
         text-transform: uppercase;
         display: block;
         padding:0.5rem 0;
         color:$white;
         background: $blue-gradient;
-        border-radius: 5px;
         margin-top:1rem;
+
+        &, &::after{
+            border-radius: 5px;
+        }
+
+        &:hover{
+            background:none;
+            color:$blue;
+        }
+
+        &:hover::after{
+            content:'';
+            height:100%;
+            width: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            border:1px solid $blue;
+        }
     }
 }
