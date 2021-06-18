@@ -123,6 +123,9 @@ $toggle-button-size:35px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    @include laptop-query{
+        flex-direction: column;
+    }
 }
 
 .plan{
@@ -133,7 +136,7 @@ $toggle-button-size:35px;
     font-size:$fontsize-regular;
     box-shadow: 0 0 15px $light-gray;
 
-    @include tablet-query{
+    @include laptop-query{
         margin:1rem;
     }
 
